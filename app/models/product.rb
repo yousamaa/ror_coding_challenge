@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   validates :name, :price, :status, presence: true
 
-  scope :active, -> { where(status: 'active') }
+  scope :active, -> { where(status: 'approved') }
   scope :name_like, -> (name) { where("name LIKE ?", "%#{name}%") if name.present? }
   scope :price_range, -> (min_price, max_price) {
     if min_price.present? || max_price.present?
