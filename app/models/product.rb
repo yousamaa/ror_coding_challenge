@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_one :approval_queue
+  has_one :approval_queue, dependent: :destroy
 
   enum status: { approved: 'approved', pending: 'pending', rejected: 'rejected' }
 
